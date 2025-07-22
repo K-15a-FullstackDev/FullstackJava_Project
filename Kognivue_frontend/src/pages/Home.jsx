@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { API_BASE_URL } from "../utils/constants";
 
 function Home() {
   const [users, setUsers] = useState([]);
@@ -8,7 +9,7 @@ function Home() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/api/users/all")
+      .get(`${API_BASE_URL}/users/all`)
       .then((res) => {
         setUsers(res.data);
         setLoading(false);
